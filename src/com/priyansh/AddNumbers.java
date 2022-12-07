@@ -27,12 +27,8 @@ public class AddNumbers extends HttpServlet {
 		int j = Integer.parseInt(request.getParameter("num2"));
 		
 		int k = i + j;
-		request.setAttribute("k", k);
 		
-		// There are tow methods to call a servlet from another servlet: Request dispatcher And Redirect
-		
-		RequestDispatcher rd = request.getRequestDispatcher("sq");
-		rd.forward(request, response);
+		response.sendRedirect("sq?k=" + k); // URL REWRITING
 		
 		
 	}

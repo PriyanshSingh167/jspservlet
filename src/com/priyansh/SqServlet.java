@@ -22,10 +22,12 @@ public class SqServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		int k = (int) request.getAttribute("k");
+		int k = Integer.parseInt(request.getParameter("k"));
 		k *= k;
 		PrintWriter out = response.getWriter();
 		out.println("The Square of two provided numbers is " + k);
+		
+		System.out.println("Sq called");
 		
 	}
 
