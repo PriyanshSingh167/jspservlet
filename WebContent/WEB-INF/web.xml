@@ -17,4 +17,14 @@
     <servlet-name>Servlet2</servlet-name>
     <url-pattern>/sq</url-pattern>
   </servlet-mapping>
+  
+  <context-param>
+      <param-name>name</param-name>
+      <param-value>Priyansh</param-value>
+  </context-param>
+  
+  <context-param>
+      <param-name>Password</param-name>
+      <param-value>Akaash</param-value>
+  </context-param>
 </web-app>

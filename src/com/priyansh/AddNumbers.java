@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -25,15 +26,12 @@ public class AddNumbers extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		int i = Integer.parseInt(request.getParameter("num1"));
-		int j = Integer.parseInt(request.getParameter("num2"));
+		PrintWriter out = response.getWriter();
+		out.print("Hi ");
 		
-		int k = i + j;
-		
-		Cookie cookie = new Cookie("k", k + "");
-		response.addCookie(cookie);
-		
-		response.sendRedirect("sq");
+		ServletContext ctx = getServletContext();
+		String str = ctx.getInitParameter("name");
+		out.println(str);
 		
 		
 	}
