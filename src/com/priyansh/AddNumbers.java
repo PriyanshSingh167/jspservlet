@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class AddNumbers
@@ -28,7 +29,10 @@ public class AddNumbers extends HttpServlet {
 		
 		int k = i + j;
 		
-		response.sendRedirect("sq?k=" + k); // URL REWRITING
+		HttpSession session = request.getSession();
+		session.setAttribute("k", k);
+		
+		response.sendRedirect("sq");
 		
 		
 	}
