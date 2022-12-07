@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import javax.servlet.http.Cookie;
+
 /**
  * Servlet implementation class SqServlet
  */
@@ -22,8 +24,14 @@ public class SqServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		int k = (int) session.getAttribute("k");
+		int k = 0;
+		Cookie cookies[] = request.getCookies();
+		
+		for(Cookie c : cookies) {
+			if(c.getName().equals("k"))
+				k = Integer.parseInt(c.getValue());
+		}
+		
 		k *= k;
 		PrintWriter out = response.getWriter();
 		out.println("The Square of two provided numbers is " + k);
